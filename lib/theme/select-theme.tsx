@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
-import themeList from './theme-list';
 
-const SelectTheme = () => {
+type Props = {
+	themes?: string[];
+};
+
+const SelectTheme = ({ themes = ['light', 'dark'] }: Props) => {
 	const [selected, setSelected] = useState('');
 
 	useEffect(() => {
@@ -43,7 +46,7 @@ const SelectTheme = () => {
 		<label className="px-2 flex flex-row gap-2">
 			<span>Theme</span>
 			<select title="theme" value={selected} onChange={(e) => onChangeTheme(e.target.value)}>
-				{themeList.map((item) => (
+				{themes.map((item) => (
 					<option key={item}>{item}</option>
 				))}
 			</select>
