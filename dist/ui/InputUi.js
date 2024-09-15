@@ -1,33 +1,34 @@
-import { jsxs as o, jsx as e } from "react/jsx-runtime";
-import { useState as h } from "react";
-import { KeyIcon as w, UserIcon as I, EmailIcon as N, SearchIcon as g } from "../icons/input-ui-icons.js";
-const u = ({ type: r }) => {
-  switch (r) {
+import { jsxs as n, jsx as t } from "react/jsx-runtime";
+import { useState as x } from "react";
+import { EyeSlash as w, Eye as I, KeyIcon as N, UserIcon as g, EmailIcon as v, SearchIcon as E } from "../icons/input-ui-icons.js";
+const p = ({ type: s }) => {
+  switch (s) {
     case "search":
-      return /* @__PURE__ */ e(g, {});
+      return /* @__PURE__ */ t(E, {});
     case "email":
-      return /* @__PURE__ */ e(N, {});
+      return /* @__PURE__ */ t(v, {});
     case "username":
-      return /* @__PURE__ */ e(I, {});
+      return /* @__PURE__ */ t(g, {});
     case "password":
-      return /* @__PURE__ */ e(w, {});
+      return /* @__PURE__ */ t(N, {});
     default:
       return null;
   }
-}, S = ({ label: r, type: t, position: l, id: n, onClick: c, onChange: d, error: a, ...m }) => {
-  const [f, p] = h(t), x = ["text", "email", "password"], i = (s) => {
-    c && c(s), t === "password" && p(f === "password" ? "text" : "password");
+}, U = ({ label: s, type: e, position: o, id: i, onClick: c, onChange: d, error: l, ...u }) => {
+  const [r, m] = x(e), f = ["text", "email", "password"], h = (a) => {
+    c && c(a), e === "password" && m(r === "password" ? "text" : "password");
   };
-  return /* @__PURE__ */ o("div", { className: "w-full flex flex-col items-start", children: [
-    r && /* @__PURE__ */ e("p", { className: "w-full text-left", children: r }),
-    /* @__PURE__ */ o("label", { className: "w-full input input-bordered flex items-center gap-2", children: [
-      l === "left" && /* @__PURE__ */ e("div", { onClick: (s) => i(s), children: /* @__PURE__ */ e(u, { type: t }) }),
-      /* @__PURE__ */ e("input", { type: x.includes(t) ? t : "text", title: n, id: n, className: "grow", placeholder: t, onChange: d, ...m }),
-      l === "right" && /* @__PURE__ */ e("div", { onClick: (s) => i(s), children: /* @__PURE__ */ e(u, { type: t }) })
+  return /* @__PURE__ */ n("div", { className: "w-full gap-1 flex flex-col items-start", children: [
+    s && /* @__PURE__ */ t("p", { className: "w-full pl-2 text-left", children: s }),
+    /* @__PURE__ */ n("label", { className: `w-full input input-bordered flex items-center gap-2 ${l && "input-error"}`, children: [
+      o === "left" && /* @__PURE__ */ t("div", { className: "tooltip tooltip-left", "data-tip": s || e, children: /* @__PURE__ */ t(p, { type: e }) }),
+      /* @__PURE__ */ t("input", { type: f.includes(e) ? r : "text", title: i, id: i, className: "grow", placeholder: e, onChange: d, ...u }),
+      e === "password" && /* @__PURE__ */ t("div", { className: "cursor-pointer tooltip tooltip-right", "data-tip": r === "text" ? "hide" : "show", onClick: (a) => h(a), children: r === "text" && /* @__PURE__ */ t(w, {}) || r === "password" && /* @__PURE__ */ t(I, {}) }),
+      o === "right" && /* @__PURE__ */ t("div", { className: "tooltip tooltip-left", "data-tip": s || e, children: /* @__PURE__ */ t(p, { type: e }) })
     ] }),
-    a && /* @__PURE__ */ e("p", { className: "w-full text-left text-red-500 text-sm", children: a })
+    l && /* @__PURE__ */ t("p", { className: "w-full pl-2 text-left error text-error text-sm", children: l })
   ] });
 };
 export {
-  S as default
+  U as default
 };
