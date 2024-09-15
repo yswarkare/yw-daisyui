@@ -1,5 +1,5 @@
 import { ChangeEventHandler, MouseEvent, MouseEventHandler, useState } from 'react';
-import { KeyIcon, UserIcon, EmailIcon, SearchIcon } from '../icons/input-ui-icons';
+import { KeyIcon, UserIcon, EmailIcon, SearchIcon, Eye, EyeSlash } from '../icons/input-ui-icons';
 
 const InputIcon = ({ type }: { type: string }) => {
 	switch (type) {
@@ -39,16 +39,16 @@ const InputUi = ({ label, type, position, id, onClick, onChange, error, ...props
 	};
 
 	return (
-		<div className="w-full flex flex-col items-start">
-			{label && <p className="w-full text-left">{label}</p>}
-			<label className="w-full input input-bordered flex items-center gap-2">
+		<div className="w-full gap-1 flex flex-col items-start">
+			{label && <p className="w-full pl-2 text-left">{label}</p>}
+			<label className={`w-full input input-bordered flex items-center gap-2 ${error && 'input-error'}`}>
 				{position === 'left' && (
-					<div onClick={(e) => changeIcon(e)}>
+					<div className="tooltip tooltip-left" data-tip={label || type}>
 						<InputIcon type={type} />
 					</div>
 				)}
 				<input
-					type={inputTypes.includes(type) ? type : 'text'}
+					type={inputTypes.includes(type) ? inType : 'text'}
 					title={id}
 					id={id}
 					className="grow"
@@ -56,13 +56,18 @@ const InputUi = ({ label, type, position, id, onClick, onChange, error, ...props
 					onChange={onChange}
 					{...props}
 				/>
+				{type === 'password' && (
+					<div className="cursor-pointer tooltip tooltip-right" data-tip={inType === 'text' ? 'hide' : 'show'} onClick={(e) => changeIcon(e)}>
+						{(inType === 'text' && <EyeSlash />) || (inType === 'password' && <Eye />)}
+					</div>
+				)}
 				{position === 'right' && (
-					<div onClick={(e) => changeIcon(e)}>
+					<div className="tooltip tooltip-left" data-tip={label || type}>
 						<InputIcon type={type} />
 					</div>
 				)}
 			</label>
-			{error && <p className="w-full text-left text-red-500 text-sm">{error}</p>}
+			{error && <p className="w-full pl-2 text-left error text-error text-sm">{error}</p>}
 		</div>
 	);
 };
