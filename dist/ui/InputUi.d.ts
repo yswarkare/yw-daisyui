@@ -1,9 +1,12 @@
-import { ChangeEventHandler } from 'react';
-declare const InputUi: ({ type, position, id, onClick, onChange, ...props }: {
+import { ChangeEventHandler, MouseEventHandler } from 'react';
+type Props = {
+    label?: string;
     type: string;
     position?: string;
     id?: string;
-    onClick?: any;
+    onClick?: MouseEventHandler;
     onChange?: ChangeEventHandler<HTMLInputElement>;
-}) => import("react").JSX.Element;
+    error?: string;
+};
+declare const InputUi: ({ label, type, position, id, onClick, onChange, error, ...props }: Props) => import("react").JSX.Element;
 export default InputUi;
