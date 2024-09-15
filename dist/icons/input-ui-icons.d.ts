@@ -1,4 +1,8 @@
-export declare const SearchIcon: (props: any) => import("react").JSX.Element;
-export declare const EmailIcon: (props: any) => import("react").JSX.Element;
-export declare const UserIcon: (props: any) => import("react").JSX.Element;
-export declare const KeyIcon: (props: any) => import("react").JSX.Element;
+type Props = {
+    className?: string;
+};
+export declare const SearchIcon: (props: Props) => import("react").JSX.Element;
+export declare const EmailIcon: (props: Props) => import("react").JSX.Element;
+export declare const UserIcon: (props: Props) => import("react").JSX.Element;
+export declare const KeyIcon: (props: Props) => import("react").JSX.Element;
+export {};

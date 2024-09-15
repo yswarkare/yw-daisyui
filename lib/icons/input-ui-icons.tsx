@@ -1,5 +1,9 @@
-const withIconHOC = (Icon: any) => {
-	const withIconHOC = (props: any) => (
+type Props = {
+	className?: string
+}
+
+const withIconHOC = (Icon: JSX.ElementType) => {
+	const withIconHOC = (props: Props) => (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="h-4 w-4 opacity-70" {...props}>
 			<Icon />
 		</svg>
