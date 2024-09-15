@@ -17,6 +17,7 @@ const InputIcon = ({ type }: { type: string }) => {
 };
 
 type Props = {
+	label?: string;
 	type: string;
 	position?: string;
 	id?: string;
@@ -25,8 +26,10 @@ type Props = {
 	error?: string;
 };
 
-const InputUi = ({ type, position, id, onClick, onChange, error, ...props }: Props) => {
+const InputUi = ({ label, type, position, id, onClick, onChange, error, ...props }: Props) => {
 	const [inType, setInType] = useState(type);
+
+	const inputTypes = ['text', 'email', 'password'];
 
 	const changeIcon = (e: MouseEvent<HTMLDivElement>) => {
 		if (onClick) onClick(e);
@@ -37,6 +40,7 @@ const InputUi = ({ type, position, id, onClick, onChange, error, ...props }: Pro
 
 	return (
 		<div className="w-full flex flex-col items-start">
+			{label && <p className="w-full text-left">{label}</p>}
 			<label className="w-full input input-bordered flex items-center gap-2">
 				{position === 'left' && (
 					<div onClick={(e) => changeIcon(e)}>
@@ -44,7 +48,7 @@ const InputUi = ({ type, position, id, onClick, onChange, error, ...props }: Pro
 					</div>
 				)}
 				<input
-					type={inType === 'password' ? 'password' : 'text'}
+					type={inputTypes.includes(type) ? type : 'text'}
 					title={id}
 					id={id}
 					className="grow"
@@ -58,7 +62,7 @@ const InputUi = ({ type, position, id, onClick, onChange, error, ...props }: Pro
 					</div>
 				)}
 			</label>
-			{error && <p className="text-red-500 text-sm">{error}</p>}
+			{error && <p className="w-full text-left text-red-500 text-sm">{error}</p>}
 		</div>
 	);
 };
