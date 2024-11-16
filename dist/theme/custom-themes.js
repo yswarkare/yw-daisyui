@@ -1,4 +1,4 @@
-const a = {
+const e = {
   altDark: {
     primary: "#ECDFCC",
     secondary: "#FFDC7F",
@@ -9,8 +9,64 @@ const a = {
     success: "#399918",
     warning: "#FFB22C",
     error: "#E4003A"
+  },
+  dark3: {
+    primary: "#fce7f3",
+    "primary-content": "#161314",
+    secondary: "#FFDC7F",
+    "secondary-content": "#161106",
+    accent: "#A0937D",
+    "accent-content": "#090805",
+    neutral: "#373A40",
+    "neutral-content": "#d3d4d5",
+    "base-100": "#1E201E",
+    "base-200": "#191a19",
+    "base-300": "#131513",
+    "base-content": "#cdcdcd",
+    info: "#0F67B1",
+    "info-content": "#d1e0f1",
+    success: "#399918",
+    "success-content": "#010800",
+    warning: "#FFB22C",
+    "warning-content": "#160c01",
+    error: "#E4003A",
+    "error-content": "#ffd8d6"
   }
-};
+}, n = [
+  "light",
+  "dark",
+  "cupcake",
+  "bumblebee",
+  "emerald",
+  "corporate",
+  "synthwave",
+  "retro",
+  "cyberpunk",
+  "valentine",
+  "halloween",
+  "garden",
+  "forest",
+  "aqua",
+  "lofi",
+  "pastel",
+  "fantasy",
+  "wireframe",
+  "black",
+  "luxury",
+  "dracula",
+  "cmyk",
+  "autumn",
+  "business",
+  "acid",
+  "lemonade",
+  "night",
+  "coffee",
+  "winter",
+  "dim",
+  "nord",
+  "sunset"
+];
 export {
-  a as default
+  e as customThemes,
+  n as daisyUiThemes
 };
