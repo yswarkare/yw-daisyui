@@ -44,10 +44,10 @@ const SelectTheme = ({ themes = ['light', 'dark'] }: Props) => {
 
 	return (
 		<label className="px-2 flex flex-row gap-2">
-			<span>Theme</span>
-			<select title="theme" value={selected} onChange={(e) => onChangeTheme(e.target.value)}>
+			<select className="select select-primary w-full min-w-max bg-base-300 shadow-2xl" title="select-theme" name='select-theme' value={selected} onChange={(e) => onChangeTheme(e.target.value)}>
+			<option disabled selected>Theme</option>
 				{themes.map((item) => (
-					<option key={item}>{item}</option>
+					<option key={item} title={item} className="theme-controller bg-ghost" aria-label={item} value={item}>{item}</option>
 				))}
 			</select>
 		</label>
