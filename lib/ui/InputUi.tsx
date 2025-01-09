@@ -22,7 +22,7 @@ type Props = {
 	position?: string;
 	id?: string;
 	onClick?: MouseEventHandler;
-	onChange?: ChangeEventHandler<HTMLInputElement>;
+	onChange?: ChangeEventHandler;
 	error?: string;
 };
 
@@ -47,15 +47,27 @@ const InputUi = ({ label, type, position, id, onClick, onChange, error, ...props
 						<InputIcon type={type} />
 					</div>
 				)}
-				<input
-					type={inputTypes.includes(type) ? inType : 'text'}
-					title={id}
-					id={id}
-					className="grow"
-					placeholder={type}
-					onChange={onChange}
-					{...props}
-				/>
+				{
+					type === 'textarea' ?
+						<textarea
+							title={`${id}_textarea`}
+							id={`${id}_textarea`}
+							className="grow"
+							placeholder={type}
+							onChange={onChange}
+							{...props}
+						/>
+						:
+						<input
+							type={inputTypes.includes(type) ? inType : 'text'}
+							title={id}
+							id={id}
+							className="grow"
+							placeholder={type}
+							onChange={onChange}
+							{...props}
+						/>
+				}
 				{type === 'password' && (
 					<div className="cursor-pointer tooltip tooltip-right" data-tip={inType === 'text' ? 'hide' : 'show'} onClick={(e) => changeIcon(e)}>
 						{(inType === 'text' && <EyeSlash />) || (inType === 'password' && <Eye />)}
