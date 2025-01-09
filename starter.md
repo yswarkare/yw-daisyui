@@ -172,7 +172,7 @@ export default defineConfig({
 10. @fullhuman/postcss-purgecss postcss
 
 ```node
-npm i -D glob react react-dom rollup-plugin-typescript-paths vite-plugin-dts vite-plugin-lib-inject-css @rollup/plugin-typescript @types/node
+npm i -D glob react react-dom rollup-plugin-typescript-paths vite-plugin-dts vite-plugin-lib-inject-css @rollup/plugin-typescript @types/node tslib
 ```
 
 ## create files and folders

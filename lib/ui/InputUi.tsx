@@ -29,7 +29,7 @@ type Props = {
 const InputUi = ({ label, type, position, id, onClick, onChange, error, ...props }: Props) => {
 	const [inType, setInType] = useState(type);
 
-	const inputTypes = ['text', 'email', 'password'];
+	const inputTypes = ['text', 'email', 'password', 'textarea'];
 
 	const changeIcon = (e: MouseEvent<HTMLDivElement>) => {
 		if (onClick) onClick(e);
