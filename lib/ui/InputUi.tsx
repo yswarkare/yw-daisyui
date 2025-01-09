@@ -41,7 +41,7 @@ const InputUi = ({ label, type, position, id, onClick, onChange, error, ...props
 	return (
 		<div className="w-full gap-1 flex flex-col items-start">
 			{label && <p className="w-full pl-2 text-left">{label}</p>}
-			<label className={`w-full input input-bordered flex items-center gap-2 ${error && 'input-error'}`}>
+			<label className={`w-full ${type === 'textarea' ? 'textarea textarea-bordered' : 'input input-bordered'} flex items-center gap-2 ${error && 'input-error'}`}>
 				{position === 'left' && (
 					<div className="tooltip tooltip-left" data-tip={label || type}>
 						<InputIcon type={type} />
